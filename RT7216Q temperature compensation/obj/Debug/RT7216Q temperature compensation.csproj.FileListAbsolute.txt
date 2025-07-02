@@ -1,0 +1,61 @@
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Form1.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Properties.Resources.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csproj.GenerateResource.Cache
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216Q_Control.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216N_BD_Control.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.COMPORT.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216N_AA_Control.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.GUI.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.Graph.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.TemperatureCompensation.resources
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe.config
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.pdb
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.pdb
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe.manifest
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.application
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe.manifest
+D:\Projects\RT7216\Autotemp\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.application
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe.config
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.pdb
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe.manifest
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.application
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.pdb
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.Graph.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.GUI.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216N_AA_Control.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216N_BD_Control.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.COMPORT.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216Q_Control.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.TemperatureCompensation.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Form1.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Properties.Resources.resources
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csproj.GenerateResource.Cache
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe.manifest
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.application
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csprojResolveAssemblyReference.cache
+D:\Software\C#\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.OTPprogramForm.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe.config
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe.manifest
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.application
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.pdb
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csprojResolveAssemblyReference.cache
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.Graph.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.GUI.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216N_AA_Control.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216N_BD_Control.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.COMPORT.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216Q_Control.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.TemperatureCompensation.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Form1.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.OTPprogramForm.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Properties.Resources.resources
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csproj.GenerateResource.Cache
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe.manifest
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.application
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.pdb
