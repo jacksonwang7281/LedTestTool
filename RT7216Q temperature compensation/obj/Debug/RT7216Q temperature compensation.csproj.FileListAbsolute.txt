@@ -43,7 +43,6 @@ D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compens
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.application
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.exe
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\bin\Debug\RT7216Q GUI.pdb
-D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csprojResolveAssemblyReference.cache
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.Graph.resources
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.GUI.resources
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q_temperature_compensation.Classes.RT7216N_AA_Control.resources
@@ -59,3 +58,4 @@ D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compens
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.application
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.pdb
+D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csprojResolveAssemblyReference.cache

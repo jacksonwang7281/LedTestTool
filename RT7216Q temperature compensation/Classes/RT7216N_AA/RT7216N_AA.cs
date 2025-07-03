@@ -337,7 +337,7 @@ public class RT7216N_AA
                 default: break;
             }
 
-            p[8] = (addr & 0x01) == 0x01;  ///test git 
+            p[8] = (addr & 0x01) == 0x01;  ///test git 1 2 3 4  
             p[9] = (addr & 0x02) == 0x02;
             p[10] = (addr & 0x04) == 0x04;   
             p[11] = (addr & 0x08) == 0x08;

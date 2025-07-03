@@ -132,6 +132,8 @@ namespace RT7216Q_temperature_compensation.Classes
             dataGridView_OTP_Variables.Rows.Add(false, "otp_internal_lock", 0, "");
             dataGridView_OTP_Variables.Rows.Add(false, "otp_program_lock", 0, "");
 
+            //dataGridView_PrimaryRegister[1, 0].Value = "1 (LSD)";
+
             dataGridView_OTP_ADDR.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 
             dataGridView_response.Rows.Add("", "", "");
@@ -151,7 +153,15 @@ namespace RT7216Q_temperature_compensation.Classes
             updateIC2Form(); 
         }
 
-        public void updateIC2Form()
+        public void ImportFileSetting(RT7216Q IC)
+        {
+
+
+
+        }
+
+
+        public void updateIC2Form() //jackson
         {
             isPWMGridReady = false;
             dataGridView_PWM[1, 0].Value = IC.pwm.R;
@@ -160,7 +170,7 @@ namespace RT7216Q_temperature_compensation.Classes
             isPWMGridReady = true;
 
             DataGridViewComboBoxCell combobox;
-            combobox = (DataGridViewComboBoxCell)dataGridView_PrimaryRegister[1,0] ; combobox.Value = combobox.Items [IC.primary_reg.DET];
+            combobox = (DataGridViewComboBoxCell)dataGridView_PrimaryRegister[1,0] ; combobox.Value = combobox.Items [IC.primary_reg.DET];  //jackson
             combobox = (DataGridViewComboBoxCell)dataGridView_PrimaryRegister[1,1] ; combobox.Value = combobox.Items [IC.primary_reg.DETL];
             combobox = (DataGridViewComboBoxCell)dataGridView_PrimaryRegister[1,2] ; combobox.Value = combobox.Items [IC.primary_reg.IOHL];
             combobox = (DataGridViewComboBoxCell)dataGridView_PrimaryRegister[1,3] ; combobox.Value = combobox.Items [IC.primary_reg.TRF];
@@ -602,7 +612,7 @@ namespace RT7216Q_temperature_compensation.Classes
                 lastOTPValue = int.Parse(grid[2,e.RowIndex].Value.ToString());
             }
         }
-        private void dataGridView_OTPADDR_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView_OTPADDR_CellValueChanged(object sender, DataGridViewCellEventArgs e) //jackson
         {
 
             if (e.ColumnIndex == 1) { return; }
@@ -627,19 +637,19 @@ namespace RT7216Q_temperature_compensation.Classes
 
                 //if (comboBox_OTP_Type.SelectedIndex == 0) { IC.otp_memory = dummy; } else { IC.otp_reg = dummy; }
             }
-            else if (e.ColumnIndex == 2)
+            else if (e.ColumnIndex == 2) //jackson
             {
                 int value;
                 if (!Int32.TryParse((string)cells[0].Value, out value)) { cells[0].Value = lastOTPValue.ToString(); isOTPGridReady = true; return; }
 
                 RT7216Q.OTP dummy = (comboBox_OTP_Type.SelectedIndex == 0) ? IC.otp_memory : IC.otp_reg;
 
-                    for (int i = 0; i < cells.Count; i++)
-                    {
-                        int row = cells[i].RowIndex;
-                        dummy[row] = value;
-                        grid[2, row].Value = value;
-                    }
+                for (int i = 0; i < cells.Count; i++)
+                {
+                    int row = cells[i].RowIndex;
+                    dummy[row] = value;
+                    grid[2, row].Value = value;
+                }
             }
 
             updateIC2Form();

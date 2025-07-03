@@ -34,7 +34,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.rT7216Q_Control1 = new RT7216Q_temperature_compensation.Classes.RT7216Q_Control();
+
+
+            this.rT7216Q_Control1 = new RT7216Q_temperature_compensation.Classes.RT7216Q_Control();  //jackson
+
+
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.rT7216N_BD_Control1 = new RT7216Q_temperature_compensation.Classes.RT7216N_BD_Control();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -48,12 +52,17 @@
             this.Column_Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numericUpDown_IC_count = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.檔案ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.匯入檔案ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileExportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Pulse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IC_count)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -62,7 +71,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("PMingLiU", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.tabControl1.Location = new System.Drawing.Point(253, 12);
+            this.tabControl1.Location = new System.Drawing.Point(254, 23);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1094, 510);
@@ -134,7 +143,7 @@
             // 
             this.flowLayoutPanel_Comports.AutoScroll = true;
             this.flowLayoutPanel_Comports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel_Comports.Location = new System.Drawing.Point(3, 53);
+            this.flowLayoutPanel_Comports.Location = new System.Drawing.Point(3, 68);
             this.flowLayoutPanel_Comports.Name = "flowLayoutPanel_Comports";
             this.flowLayoutPanel_Comports.Size = new System.Drawing.Size(244, 204);
             this.flowLayoutPanel_Comports.TabIndex = 2;
@@ -143,7 +152,7 @@
             // 
             this.label_SerialPort.AutoSize = true;
             this.label_SerialPort.Font = new System.Drawing.Font("PMingLiU", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label_SerialPort.Location = new System.Drawing.Point(1, 23);
+            this.label_SerialPort.Location = new System.Drawing.Point(1, 29);
             this.label_SerialPort.Name = "label_SerialPort";
             this.label_SerialPort.Size = new System.Drawing.Size(105, 21);
             this.label_SerialPort.TabIndex = 3;
@@ -151,7 +160,7 @@
             // 
             // button_RefreshPorts
             // 
-            this.button_RefreshPorts.Location = new System.Drawing.Point(163, 12);
+            this.button_RefreshPorts.Location = new System.Drawing.Point(127, 23);
             this.button_RefreshPorts.Name = "button_RefreshPorts";
             this.button_RefreshPorts.Size = new System.Drawing.Size(84, 35);
             this.button_RefreshPorts.TabIndex = 4;
@@ -249,6 +258,39 @@
             this.label1.Text = "IC count";
             this.label1.Visible = false;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.檔案ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1348, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 檔案ToolStripMenuItem
+            // 
+            this.檔案ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.匯入檔案ToolStripMenuItem,
+            this.FileExportToolStripMenuItem});
+            this.檔案ToolStripMenuItem.Name = "檔案ToolStripMenuItem";
+            this.檔案ToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.檔案ToolStripMenuItem.Text = "File";
+            // 
+            // 匯入檔案ToolStripMenuItem
+            // 
+            this.匯入檔案ToolStripMenuItem.Name = "匯入檔案ToolStripMenuItem";
+            this.匯入檔案ToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.匯入檔案ToolStripMenuItem.Text = "ImportFile";
+            this.匯入檔案ToolStripMenuItem.Click += new System.EventHandler(this.FileImportToolStripMenuItem_Click);
+            // 
+            // FileExportToolStripMenuItem
+            // 
+            this.FileExportToolStripMenuItem.Name = "FileExportToolStripMenuItem";
+            this.FileExportToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.FileExportToolStripMenuItem.Text = "ExportFile";
+            this.FileExportToolStripMenuItem.Click += new System.EventHandler(this.FileExportToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -261,8 +303,10 @@
             this.Controls.Add(this.label_SerialPort);
             this.Controls.Add(this.flowLayoutPanel_Comports);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "RT7216Q GUI";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -272,6 +316,8 @@
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Pulse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_IC_count)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,6 +342,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Item;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Pulse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Time;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 檔案ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 匯入檔案ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileExportToolStripMenuItem;
 
 
     }

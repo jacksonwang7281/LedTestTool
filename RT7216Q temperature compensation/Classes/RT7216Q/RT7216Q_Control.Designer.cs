@@ -39,6 +39,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -48,9 +51,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView_PWM = new System.Windows.Forms.DataGridView();
             this.Column_Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_PWM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +71,10 @@
             this.button_MISC = new System.Windows.Forms.Button();
             this.label_OTP = new System.Windows.Forms.Label();
             this.dataGridView_OTP_ADDR = new System.Windows.Forms.DataGridView();
+            this.Column_OTP_enable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column_OTP_ADDR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_OTP_SendValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column_OTP_ReadValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_OTP_send = new System.Windows.Forms.Button();
             this.button_OTP_read = new System.Windows.Forms.Button();
             this.comboBox_OTP_Type = new System.Windows.Forms.ComboBox();
@@ -92,10 +96,6 @@
             this.Column_Response_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Response_Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Response_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_OTP_enable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column_OTP_ADDR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_OTP_SendValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column_OTP_ReadValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_PWM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_PrimaryRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MISC)).BeginInit();
@@ -415,6 +415,46 @@
             this.dataGridView_OTP_ADDR.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridView_CurrentCellDirtyStateChanged);
             this.dataGridView_OTP_ADDR.Enter += new System.EventHandler(this.dataGridView_Enter);
             // 
+            // Column_OTP_enable
+            // 
+            this.Column_OTP_enable.HeaderText = "";
+            this.Column_OTP_enable.Name = "Column_OTP_enable";
+            this.Column_OTP_enable.Width = 20;
+            // 
+            // Column_OTP_ADDR
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            this.Column_OTP_ADDR.DefaultCellStyle = dataGridViewCellStyle12;
+            this.Column_OTP_ADDR.HeaderText = "ADDR";
+            this.Column_OTP_ADDR.MinimumWidth = 40;
+            this.Column_OTP_ADDR.Name = "Column_OTP_ADDR";
+            this.Column_OTP_ADDR.ReadOnly = true;
+            this.Column_OTP_ADDR.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_OTP_ADDR.Width = 45;
+            // 
+            // Column_OTP_SendValue
+            // 
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column_OTP_SendValue.DefaultCellStyle = dataGridViewCellStyle13;
+            this.Column_OTP_SendValue.HeaderText = "To send";
+            this.Column_OTP_SendValue.MinimumWidth = 55;
+            this.Column_OTP_SendValue.Name = "Column_OTP_SendValue";
+            this.Column_OTP_SendValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_OTP_SendValue.Width = 55;
+            // 
+            // Column_OTP_ReadValue
+            // 
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            this.Column_OTP_ReadValue.DefaultCellStyle = dataGridViewCellStyle14;
+            this.Column_OTP_ReadValue.HeaderText = "Read";
+            this.Column_OTP_ReadValue.MinimumWidth = 55;
+            this.Column_OTP_ReadValue.Name = "Column_OTP_ReadValue";
+            this.Column_OTP_ReadValue.ReadOnly = true;
+            this.Column_OTP_ReadValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column_OTP_ReadValue.Width = 55;
+            // 
             // button_OTP_send
             // 
             this.button_OTP_send.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -718,46 +758,6 @@
             this.Column_Response_Description.Name = "Column_Response_Description";
             this.Column_Response_Description.ReadOnly = true;
             this.Column_Response_Description.Width = 130;
-            // 
-            // Column_OTP_enable
-            // 
-            this.Column_OTP_enable.HeaderText = "";
-            this.Column_OTP_enable.Name = "Column_OTP_enable";
-            this.Column_OTP_enable.Width = 20;
-            // 
-            // Column_OTP_ADDR
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            this.Column_OTP_ADDR.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column_OTP_ADDR.HeaderText = "ADDR";
-            this.Column_OTP_ADDR.MinimumWidth = 40;
-            this.Column_OTP_ADDR.Name = "Column_OTP_ADDR";
-            this.Column_OTP_ADDR.ReadOnly = true;
-            this.Column_OTP_ADDR.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column_OTP_ADDR.Width = 45;
-            // 
-            // Column_OTP_SendValue
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column_OTP_SendValue.DefaultCellStyle = dataGridViewCellStyle13;
-            this.Column_OTP_SendValue.HeaderText = "To send";
-            this.Column_OTP_SendValue.MinimumWidth = 55;
-            this.Column_OTP_SendValue.Name = "Column_OTP_SendValue";
-            this.Column_OTP_SendValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column_OTP_SendValue.Width = 55;
-            // 
-            // Column_OTP_ReadValue
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            this.Column_OTP_ReadValue.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Column_OTP_ReadValue.HeaderText = "Read";
-            this.Column_OTP_ReadValue.MinimumWidth = 55;
-            this.Column_OTP_ReadValue.Name = "Column_OTP_ReadValue";
-            this.Column_OTP_ReadValue.ReadOnly = true;
-            this.Column_OTP_ReadValue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column_OTP_ReadValue.Width = 55;
             // 
             // RT7216Q_Control
             // 

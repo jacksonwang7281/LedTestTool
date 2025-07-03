@@ -13,6 +13,8 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Threading;
 using System.Management;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+
 
 namespace RT7216Q_temperature_compensation
 {
@@ -753,6 +755,146 @@ namespace RT7216Q_temperature_compensation
         private void temperatureCompensation1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ReadCellByInterop(string path)
+        {
+            Excel.Application xlApp = new Excel.Application();
+            Excel.Workbook wb = xlApp.Workbooks.Open(path, ReadOnly: true);
+            Excel.Worksheet ws = wb.Worksheets[1];         // Worksheets 由 1 開始
+            object val = ws.Cells[5, 2].Value;             // 2:列, 2:欄  ⇒ B2
+            //MessageBox.Show($"B2 內容 = {val}");
+
+            if (val != null)
+            {
+                //string str = val.ToString();  // 轉成字串 "0 (DEL)"
+    
+                // 方法1：Split（依空白切開，取第0個）
+                //string firstPart = str.Split(' ')[0]; // "0"
+                //int number = int.Parse(firstPart);    // 轉成 int
+
+                ws = wb.Worksheets[1];   
+
+                rT7216Q_Control1.IC.otp_reg.max_PWM_chip = int.Parse(ws.Cells[1, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.PWM_scalar_R = int.Parse(ws.Cells[2, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.PWM_scalar_G = int.Parse(ws.Cells[3, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.PWM_scalar_B = int.Parse(ws.Cells[4, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.pwm_18bit_mode = int.Parse(ws.Cells[5, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_r_base = int.Parse(ws.Cells[6, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_r_gradient = int.Parse(ws.Cells[7, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_g_base = int.Parse(ws.Cells[8, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_g_gradient = int.Parse(ws.Cells[9, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_b_base = int.Parse(ws.Cells[10, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_b_gradient = int.Parse(ws.Cells[11, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.CR_R = int.Parse(ws.Cells[12, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.CR_G = int.Parse(ws.Cells[13, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.CR_B = int.Parse(ws.Cells[14, 2].Value.ToString());
+
+                rT7216Q_Control1.IC.otp_reg.IOUT_trim = int.Parse(ws.Cells[15, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.OSC_Freq_Trim = int.Parse(ws.Cells[16, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.thermal_bias = int.Parse(ws.Cells[17, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.thermal_gradient = int.Parse(ws.Cells[18, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.V_THD_Trim = int.Parse(ws.Cells[19, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_shift10 = int.Parse(ws.Cells[20, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_shift9 = int.Parse(ws.Cells[21, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_shift8 = int.Parse(ws.Cells[22, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[0] = int.Parse(ws.Cells[23, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[1] = int.Parse(ws.Cells[24, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[2] = int.Parse(ws.Cells[25, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[3] = int.Parse(ws.Cells[26, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[4] = int.Parse(ws.Cells[27, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[5] = int.Parse(ws.Cells[28, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[6] = int.Parse(ws.Cells[29, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[7] = int.Parse(ws.Cells[30, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[8] = int.Parse(ws.Cells[31, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[9] = int.Parse(ws.Cells[32, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[10] = int.Parse(ws.Cells[33, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.otp_internal_lock = int.Parse(ws.Cells[34, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_reg.otp_program_lock = int.Parse(ws.Cells[35, 2].Value.ToString());
+
+
+//===================================================================================================================
+
+                ws = wb.Worksheets[2];
+
+                rT7216Q_Control1.IC.otp_memory.max_PWM_chip = int.Parse(ws.Cells[1, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.PWM_scalar_R = int.Parse(ws.Cells[2, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.PWM_scalar_G = int.Parse(ws.Cells[3, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.PWM_scalar_B = int.Parse(ws.Cells[4, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.pwm_18bit_mode = int.Parse(ws.Cells[5, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_r_base = int.Parse(ws.Cells[6, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_r_gradient = int.Parse(ws.Cells[7, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_g_base = int.Parse(ws.Cells[8, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_g_gradient = int.Parse(ws.Cells[9, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_b_base = int.Parse(ws.Cells[10, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_b_gradient = int.Parse(ws.Cells[11, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.CR_R = int.Parse(ws.Cells[12, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.CR_G = int.Parse(ws.Cells[13, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.CR_B = int.Parse(ws.Cells[14, 2].Value.ToString());
+
+                rT7216Q_Control1.IC.otp_memory.IOUT_trim = int.Parse(ws.Cells[15, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.OSC_Freq_Trim = int.Parse(ws.Cells[16, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.thermal_bias = int.Parse(ws.Cells[17, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.thermal_gradient = int.Parse(ws.Cells[18, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.V_THD_Trim = int.Parse(ws.Cells[19, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_shift10 = int.Parse(ws.Cells[20, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_shift9 = int.Parse(ws.Cells[21, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_shift8 = int.Parse(ws.Cells[22, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[0] = int.Parse(ws.Cells[23, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[1] = int.Parse(ws.Cells[24, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[2] = int.Parse(ws.Cells[25, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[3] = int.Parse(ws.Cells[26, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[4] = int.Parse(ws.Cells[27, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[5] = int.Parse(ws.Cells[28, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[6] = int.Parse(ws.Cells[29, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[7] = int.Parse(ws.Cells[30, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[8] = int.Parse(ws.Cells[31, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[9] = int.Parse(ws.Cells[32, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[10] = int.Parse(ws.Cells[33, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.otp_internal_lock = int.Parse(ws.Cells[34, 2].Value.ToString());
+                rT7216Q_Control1.IC.otp_memory.otp_program_lock = int.Parse(ws.Cells[35, 2].Value.ToString());
+
+
+
+            }
+
+            // 關閉與釋放
+            wb.Close(false);
+            xlApp.Quit();
+            Marshal.ReleaseComObject(ws);
+            Marshal.ReleaseComObject(wb);
+            Marshal.ReleaseComObject(xlApp);
+        }
+
+
+        private void FileImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Excel 檔案 (*.xlsx)|*.xlsx|所有檔案 (*.*)|*.*";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // TODO: 在這裡呼叫你的匯入流程，例如：
+                    // ImportExcel(ofd.FileName);
+                    ReadCellByInterop(ofd.FileName);
+
+                    rT7216Q_Control1.updateIC2Form();
+
+                }
+            }
+        }
+
+        private void FileExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel 檔案 (*.xlsx)|*.xlsx|所有檔案 (*.*)|*.*";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    // TODO: 在這裡呼叫你的匯出流程，例如：
+                    // ExportExcel(sfd.FileName);
+                }
+            }
         }
 
 
