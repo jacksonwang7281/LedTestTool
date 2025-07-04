@@ -773,7 +773,7 @@ namespace RT7216Q_temperature_compensation
                 //string firstPart = str.Split(' ')[0]; // "0"
                 //int number = int.Parse(firstPart);    // 轉成 int
 
-                ws = wb.Worksheets[1];   
+                ws = wb.Worksheets[1];
 
                 rT7216Q_Control1.IC.otp_reg.max_PWM_chip = int.Parse(ws.Cells[1, 2].Value.ToString());
                 rT7216Q_Control1.IC.otp_reg.PWM_scalar_R = int.Parse(ws.Cells[2, 2].Value.ToString());
@@ -884,6 +884,220 @@ namespace RT7216Q_temperature_compensation
             }
         }
 
+        private Excel.Worksheet GetOrCreateSheet(Excel.Workbook wb, int index, string sheetName = null)
+        {
+            //if (index <= 0) throw new ArgumentOutOfRangeException(nameof(index));
+
+            // 只要數量不足就一直新增
+            while (wb.Worksheets.Count < index)
+            {
+                wb.Worksheets.Add(After: wb.Worksheets[wb.Worksheets.Count]);
+            }
+
+            var ws = (Excel.Worksheet)wb.Worksheets[index];
+            if (!string.IsNullOrEmpty(sheetName))
+                ws.Name = sheetName;
+
+            return ws;
+        }
+
+        private void ReadCellByExport(string path)
+        {
+
+            Excel.Application xlApp = null;
+            Excel.Workbook wb = null;
+            Excel.Worksheet ws = null;
+
+
+            try
+            {
+                xlApp = new Excel.Application();
+
+                bool exist = File.Exists(path);
+                wb = exist
+                     ? xlApp.Workbooks.Open(path, ReadOnly: false)
+                     : xlApp.Workbooks.Add();
+
+                ws = GetOrCreateSheet(wb, 1, "Register");
+
+                ws = wb.Worksheets[1];   // 第一張工作表
+
+                ws.Cells[1, 1].Value = "max_PWM_chip";
+                ws.Cells[2, 1].Value = "PWM_scalar_R";
+                ws.Cells[3, 1].Value = "PWM_scalar_G";
+                ws.Cells[4, 1].Value = "PWM_scalar_B";
+                ws.Cells[5, 1].Value = "pwm_18bit_mode";
+                ws.Cells[6, 1].Value = "tc_r_base";
+                ws.Cells[7, 1].Value = "tc_r_gradient";
+                ws.Cells[8, 1].Value = "tc_g_base";
+                ws.Cells[9, 1].Value = "tc_g_gradient";
+                ws.Cells[10, 1].Value = "tc_b_base";
+                ws.Cells[11, 1].Value = "tc_b_gradient";
+                ws.Cells[12, 1].Value = "CR_R";
+                ws.Cells[13, 1].Value = "CR_G";
+                ws.Cells[14, 1].Value = "CR_B";
+                ws.Cells[15, 1].Value = "IOUT_trim";
+                ws.Cells[16, 1].Value = "OSC_Freq_Trim";
+                ws.Cells[17, 1].Value = "thermal_bias";
+                ws.Cells[18, 1].Value = "thermal_gradient";
+                ws.Cells[19, 1].Value = "V_THD_Trim";
+                ws.Cells[20, 1].Value = "tc_fine_shift10";
+                ws.Cells[21, 1].Value = "tc_fine_shift9";
+                ws.Cells[22, 1].Value = "tc_fine_shift8";
+                ws.Cells[23, 1].Value = "tc_fine_thermal_idx_0";
+                ws.Cells[24, 1].Value = "tc_fine_thermal_idx_1";
+                ws.Cells[25, 1].Value = "tc_fine_thermal_idx_2";
+                ws.Cells[26, 1].Value = "tc_fine_thermal_idx_3";
+                ws.Cells[27, 1].Value = "tc_fine_thermal_idx_4";
+                ws.Cells[28, 1].Value = "tc_fine_thermal_idx_5";
+                ws.Cells[29, 1].Value = "tc_fine_thermal_idx_6";
+                ws.Cells[30, 1].Value = "tc_fine_thermal_idx_7";
+                ws.Cells[31, 1].Value = "tc_fine_thermal_idx_8";
+                ws.Cells[32, 1].Value = "tc_fine_thermal_idx_9";
+                ws.Cells[33, 1].Value = "tc_fine_thermal_idx_10";
+                ws.Cells[34, 1].Value = "otp_internal_lock";
+                ws.Cells[35, 1].Value = "otp_program_lock";
+
+
+                ws.Cells[1, 2].Value = rT7216Q_Control1.IC.otp_reg.max_PWM_chip.ToString();
+                ws.Cells[2, 2].Value = rT7216Q_Control1.IC.otp_reg.PWM_scalar_R.ToString();
+                ws.Cells[3, 2].Value = rT7216Q_Control1.IC.otp_reg.PWM_scalar_G.ToString();
+                ws.Cells[4, 2].Value = rT7216Q_Control1.IC.otp_reg.PWM_scalar_B.ToString();
+                ws.Cells[5, 2].Value = rT7216Q_Control1.IC.otp_reg.pwm_18bit_mode.ToString();
+                ws.Cells[6, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_r_base.ToString();
+                ws.Cells[7, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_r_gradient.ToString();
+                ws.Cells[8, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_g_base.ToString();
+                ws.Cells[9, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_g_gradient.ToString();
+                ws.Cells[10, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_b_base.ToString();
+                ws.Cells[11, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_b_gradient.ToString();
+                ws.Cells[12, 2].Value = rT7216Q_Control1.IC.otp_reg.CR_R.ToString();
+                ws.Cells[13, 2].Value = rT7216Q_Control1.IC.otp_reg.CR_G.ToString();
+                ws.Cells[14, 2].Value = rT7216Q_Control1.IC.otp_reg.CR_B.ToString();
+                ws.Cells[15, 2].Value = rT7216Q_Control1.IC.otp_reg.IOUT_trim.ToString();
+                ws.Cells[16, 2].Value = rT7216Q_Control1.IC.otp_reg.OSC_Freq_Trim.ToString();
+                ws.Cells[17, 2].Value = rT7216Q_Control1.IC.otp_reg.thermal_bias.ToString();
+                ws.Cells[18, 2].Value = rT7216Q_Control1.IC.otp_reg.thermal_gradient.ToString();
+                ws.Cells[19, 2].Value = rT7216Q_Control1.IC.otp_reg.V_THD_Trim.ToString();
+                ws.Cells[20, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_shift10.ToString();
+                ws.Cells[21, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_shift9.ToString();
+                ws.Cells[22, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_shift8.ToString();
+                ws.Cells[23, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[0].ToString(); 
+                ws.Cells[24, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[1].ToString(); 
+                ws.Cells[25, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[2].ToString(); 
+                ws.Cells[26, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[3].ToString(); 
+                ws.Cells[27, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[4].ToString(); 
+                ws.Cells[28, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[5].ToString(); 
+                ws.Cells[29, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[6].ToString(); 
+                ws.Cells[30, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[7].ToString(); 
+                ws.Cells[31, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[8].ToString(); 
+                ws.Cells[32, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[9].ToString(); 
+                ws.Cells[33, 2].Value = rT7216Q_Control1.IC.otp_reg.tc_fine_thermal_idx[10].ToString();
+                ws.Cells[34, 2].Value = rT7216Q_Control1.IC.otp_reg.otp_internal_lock.ToString();
+                ws.Cells[35, 2].Value = rT7216Q_Control1.IC.otp_reg.otp_program_lock.ToString();
+
+                ws = GetOrCreateSheet(wb, 2, "Memory");
+
+                ws = wb.Worksheets[2];   // 第二張工作表
+
+                ws.Cells[1, 1].Value = "max_PWM_chip";
+                ws.Cells[2, 1].Value = "PWM_scalar_R";
+                ws.Cells[3, 1].Value = "PWM_scalar_G";
+                ws.Cells[4, 1].Value = "PWM_scalar_B";
+                ws.Cells[5, 1].Value = "pwm_18bit_mode";
+                ws.Cells[6, 1].Value = "tc_r_base";
+                ws.Cells[7, 1].Value = "tc_r_gradient";
+                ws.Cells[8, 1].Value = "tc_g_base";
+                ws.Cells[9, 1].Value = "tc_g_gradient";
+                ws.Cells[10, 1].Value = "tc_b_base";
+                ws.Cells[11, 1].Value = "tc_b_gradient";
+                ws.Cells[12, 1].Value = "CR_R";
+                ws.Cells[13, 1].Value = "CR_G";
+                ws.Cells[14, 1].Value = "CR_B";
+                ws.Cells[15, 1].Value = "IOUT_trim";
+                ws.Cells[16, 1].Value = "OSC_Freq_Trim";
+                ws.Cells[17, 1].Value = "thermal_bias";
+                ws.Cells[18, 1].Value = "thermal_gradient";
+                ws.Cells[19, 1].Value = "V_THD_Trim";
+                ws.Cells[20, 1].Value = "tc_fine_shift10";
+                ws.Cells[21, 1].Value = "tc_fine_shift9";
+                ws.Cells[22, 1].Value = "tc_fine_shift8";
+                ws.Cells[23, 1].Value = "tc_fine_thermal_idx_0";
+                ws.Cells[24, 1].Value = "tc_fine_thermal_idx_1";
+                ws.Cells[25, 1].Value = "tc_fine_thermal_idx_2";
+                ws.Cells[26, 1].Value = "tc_fine_thermal_idx_3";
+                ws.Cells[27, 1].Value = "tc_fine_thermal_idx_4";
+                ws.Cells[28, 1].Value = "tc_fine_thermal_idx_5";
+                ws.Cells[29, 1].Value = "tc_fine_thermal_idx_6";
+                ws.Cells[30, 1].Value = "tc_fine_thermal_idx_7";
+                ws.Cells[31, 1].Value = "tc_fine_thermal_idx_8";
+                ws.Cells[32, 1].Value = "tc_fine_thermal_idx_9";
+                ws.Cells[33, 1].Value = "tc_fine_thermal_idx_10";
+                ws.Cells[34, 1].Value = "otp_internal_lock";
+                ws.Cells[35, 1].Value = "otp_program_lock";
+
+                ws.Cells[1, 2].Value = rT7216Q_Control1.IC.otp_memory.max_PWM_chip.ToString();
+                ws.Cells[2, 2].Value = rT7216Q_Control1.IC.otp_memory.PWM_scalar_R.ToString();
+                ws.Cells[3, 2].Value = rT7216Q_Control1.IC.otp_memory.PWM_scalar_G.ToString();
+                ws.Cells[4, 2].Value = rT7216Q_Control1.IC.otp_memory.PWM_scalar_B.ToString();
+                ws.Cells[5, 2].Value = rT7216Q_Control1.IC.otp_memory.pwm_18bit_mode.ToString();
+                ws.Cells[6, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_r_base.ToString();
+                ws.Cells[7, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_r_gradient.ToString();
+                ws.Cells[8, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_g_base.ToString();
+                ws.Cells[9, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_g_gradient.ToString();
+                ws.Cells[10, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_b_base.ToString();
+                ws.Cells[11, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_b_gradient.ToString();
+                ws.Cells[12, 2].Value = rT7216Q_Control1.IC.otp_memory.CR_R.ToString();
+                ws.Cells[13, 2].Value = rT7216Q_Control1.IC.otp_memory.CR_G.ToString();
+                ws.Cells[14, 2].Value = rT7216Q_Control1.IC.otp_memory.CR_B.ToString();
+                ws.Cells[15, 2].Value = rT7216Q_Control1.IC.otp_memory.IOUT_trim.ToString();
+                ws.Cells[16, 2].Value = rT7216Q_Control1.IC.otp_memory.OSC_Freq_Trim.ToString();
+                ws.Cells[17, 2].Value = rT7216Q_Control1.IC.otp_memory.thermal_bias.ToString();
+                ws.Cells[18, 2].Value = rT7216Q_Control1.IC.otp_memory.thermal_gradient.ToString();
+                ws.Cells[19, 2].Value = rT7216Q_Control1.IC.otp_memory.V_THD_Trim.ToString();
+                ws.Cells[20, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_shift10.ToString();
+                ws.Cells[21, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_shift9.ToString();
+                ws.Cells[22, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_shift8.ToString();
+                ws.Cells[23, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[0].ToString();
+                ws.Cells[24, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[1].ToString();
+                ws.Cells[25, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[2].ToString();
+                ws.Cells[26, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[3].ToString();
+                ws.Cells[27, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[4].ToString();
+                ws.Cells[28, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[5].ToString();
+                ws.Cells[29, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[6].ToString();
+                ws.Cells[30, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[7].ToString();
+                ws.Cells[31, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[8].ToString();
+                ws.Cells[32, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[9].ToString();
+                ws.Cells[33, 2].Value = rT7216Q_Control1.IC.otp_memory.tc_fine_thermal_idx[10].ToString();
+                ws.Cells[34, 2].Value = rT7216Q_Control1.IC.otp_memory.otp_internal_lock.ToString();
+                ws.Cells[35, 2].Value = rT7216Q_Control1.IC.otp_memory.otp_program_lock.ToString();
+
+                if (exist)
+                    wb.Save();           // 覆寫舊檔
+                else
+                    wb.SaveAs(path);     // 第一次存檔
+            }
+            finally
+            {
+                // 依序釋放 COM 物件
+                if (ws != null) Marshal.ReleaseComObject(ws);
+                if (wb != null)
+                {
+                    wb.Close(false);
+                    Marshal.ReleaseComObject(wb);
+                }
+                if (xlApp != null)
+                {
+                    xlApp.Quit();
+                    Marshal.ReleaseComObject(xlApp);
+                }
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+            }
+
+
+        }
+
+
         private void FileExportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog sfd = new SaveFileDialog())
@@ -893,6 +1107,7 @@ namespace RT7216Q_temperature_compensation
                 {
                     // TODO: 在這裡呼叫你的匯出流程，例如：
                     // ExportExcel(sfd.FileName);
+                    ReadCellByExport(sfd.FileName);
                 }
             }
         }
