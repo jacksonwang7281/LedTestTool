@@ -40,7 +40,19 @@ namespace RT7216Q_temperature_compensation.Classes
                     CR_G = 127,
                     CR_B = 51,
                     tc_fine_shift10 = 1
+                },
+
+                otp_memory = new RT7216Q.OTP(RT7216Q.OTP.Type.register)
+                {
+                    tc_r_base = 168, tc_r_gradient = 22,
+                    tc_g_base = 228, tc_g_gradient = 7,
+                    tc_b_base = 232, tc_b_gradient = 6,
+                    CR_R = 125,
+                    CR_G = 127,
+                    CR_B = 51,
+                    tc_fine_shift10 = 1
                 }
+
             };
 
             IC.otp_memory.max_PWM_chip = 12285;
@@ -54,6 +66,8 @@ namespace RT7216Q_temperature_compensation.Classes
                 IC.otp_memory.en[i] = true;
             }
             IC.otp_reg.tc_fine_thermal_idx = new int[11] { 22, 14, 7, 2, 1, 2, 9, 30, 70, 120, 140 };
+
+            IC.otp_memory.tc_fine_thermal_idx = new int[11] { 22, 14, 7, 2, 1, 2, 9, 30, 70, 120, 140 };
 
             dataGridView_PWM.Rows.Add(new string[]{ "R", "0", "0%", "0%" });
             dataGridView_PWM.Rows.Add(new string[]{ "G", "0", "0%", "0%" });

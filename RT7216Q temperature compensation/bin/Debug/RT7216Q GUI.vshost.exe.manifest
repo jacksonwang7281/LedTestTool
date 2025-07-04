@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RT7216Q GUI.exe" size="322520">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RT7216Q GUI.exe" size="313304">
       <assemblyIdentity name="RT7216Q GUI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jClaNlk3D0TYgv207kdxoBQ7dRNzr68hW2VJVd7X/Iw=</dsig:DigestValue>
+        <dsig:DigestValue>/Usf5jhiebCBoGoMnpd5zYQa63R5TZqGifmgr9tovr8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

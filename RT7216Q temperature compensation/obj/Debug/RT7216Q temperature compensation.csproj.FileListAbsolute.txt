@@ -58,4 +58,3 @@ D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compens
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.application
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.exe
 D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q GUI.pdb
-D:\Jackson\projects\RT7216Q temperature compensation\RT7216Q temperature compensation\obj\Debug\RT7216Q temperature compensation.csprojResolveAssemblyReference.cache
